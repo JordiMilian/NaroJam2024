@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   harvestTime: 5
-  seedsPerHarvest: 5
+  seedsPerHarvest: 10
   harvestUI: {fileID: 5785812560080482544}
   seedText: {fileID: 3293871890775616791}
   animation: {fileID: 794279772926933433}

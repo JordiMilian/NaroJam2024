@@ -9,4 +9,19 @@ public class SeedBullet : MonoBehaviour
     {
         transform.position += Vector3.right * speed * Time.deltaTime;
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.transform.tag == "CatCollider")
+        {
+            collision.transform.GetComponent<Cat>().GetDamage(1);
+
+            Destroy(gameObject);
+        }
+
+        if (collision.transform.gameObject.layer == 8)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

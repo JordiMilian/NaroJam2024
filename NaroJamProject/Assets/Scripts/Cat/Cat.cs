@@ -7,8 +7,10 @@ public class Cat : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [SerializeField] private int hitPoints = 1;
 
+    public bool inmortal = true;
     public void GetDamage(int hitDamage = 1)
     {
+        if (inmortal) return;
         hitPoints -= hitDamage;
 
         if(hitPoints <= 0 )

@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ConsumeSeedRoutine());
+        //StartCoroutine(ConsumeSeedRoutine());
     }
     IEnumerator ConsumeSeedRoutine()
     {

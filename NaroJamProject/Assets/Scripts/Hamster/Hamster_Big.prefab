@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2661006016592318191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.84974, y: 0.84974, z: 0.84974}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2661006018099358454}
@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aef17157f9064d4399d3db90ff6934e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBounceStrenght: 200
-  maxBounceStrenght: 400
+  minBounceStrenght: 100
+  maxBounceStrenght: 200
   minAngle: 30
   maxAngle: 60
   hungry: 3

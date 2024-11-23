@@ -29,7 +29,7 @@ public class SeedCounter : MonoBehaviour
 
             int seeds = GameController.Instance.GetSeedsNumber();
             int hungry = GameController.Instance.GetHungry();
-            textMeshPro.text = hungry.ToString() + "/" + seeds.ToString();
+            textMeshPro.text = seeds.ToString();
         }
     }
 }

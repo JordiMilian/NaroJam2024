@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2185961519774627619}
   - component: {fileID: 7450281660404519622}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pota_interior2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,9 +96,9 @@ GameObject:
   - component: {fileID: 7640649769228237654}
   - component: {fileID: 2085900958837762927}
   - component: {fileID: 5020340708034988771}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: CatCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,8 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99e4bbf1f1eddc94286a97050d1993db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  hitPoints: 1
+  speed: 3
+  hitPoints: 10
+  inmortal: 1
 --- !u!61 &2085900958837762927
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.22091365}
@@ -188,7 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4622181531039654598}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cua_Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1107037568135827345}
   - component: {fileID: 1328357322578879574}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pota_interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1734466446765152729}
   - component: {fileID: 53294595391589465}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pota_exterior (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1945818249791633694}
   - component: {fileID: 4734386680947459073}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -478,7 +479,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8606773585914070230}
   - component: {fileID: 3765047009397145597}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cua (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650539310409384222}
   - component: {fileID: 3920862565602352252}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pota_exterior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
