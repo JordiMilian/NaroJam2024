@@ -9,6 +9,9 @@ public class GameController : MonoBehaviour
     private bool timeRunning = false;
     private float timeFromStart = 0;
     [SerializeField] private int seedBank = 0;
+    [SerializeField] int hamstersHungry;
+    [SerializeField] float timeForSeedConsume = 5;
+    [SerializeField] int initialSeeds = 25;
     void Awake()
     {
         if (Instance == null)
@@ -16,8 +19,31 @@ public class GameController : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }else Destroy(gameObject);
+
+        seedBank = initialSeeds;
+        hamstersHungry = 0;
     }
 
+    private void Start()
+    {
+        StartCoroutine(ConsumeSeedRoutine());
+    }
+    IEnumerator ConsumeSeedRoutine()
+    {
+        while (true) 
+        {
+            yield return new WaitForSeconds(timeForSeedConsume);
+
+            seedBank -= hamstersHungry;
+
+            if (seedBank < 0) seedBank = 0;
+        }
+    }
+
+    public int GetHungry()
+    {
+        return hamstersHungry;
+    }
     public float GetTime()
     {
         return timeFromStart;
@@ -27,6 +53,15 @@ public class GameController : MonoBehaviour
         return seedBank;
     }
 
+    public void AddSeedConsumition(int seedNum)
+    {
+        hamstersHungry += seedNum;
+    }
+    public void RemoveSeedConsumition(int seedNum)
+    {
+        hamstersHungry -= seedNum;
+        if (hamstersHungry < 0) hamstersHungry = 0;
+    }
     //Devuelve true si puede quitar las pipas del banco, si las pipas que intentas consumir
     //son más que las que quedan en el banco no las resta y devuelve false
     public bool RemoveSeed(int seedNumber)

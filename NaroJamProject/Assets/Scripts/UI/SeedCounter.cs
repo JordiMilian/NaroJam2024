@@ -17,6 +17,7 @@ public class SeedCounter : MonoBehaviour
 
     private void Start()
     {
+        textMeshPro.text = GameController.Instance.GetSeedsNumber().ToString();
         StartCoroutine(UpdateSeedCounter());
     }
 
@@ -26,7 +27,9 @@ public class SeedCounter : MonoBehaviour
         {
             yield return new WaitForSeconds(seedCheckTimer);
 
-            textMeshPro.text = GameController.Instance.GetSeedsNumber().ToString();
+            int seeds = GameController.Instance.GetSeedsNumber();
+            int hungry = GameController.Instance.GetHungry();
+            textMeshPro.text = hungry.ToString() + "/" + seeds.ToString();
         }
     }
 }

@@ -5,7 +5,7 @@ using TMPro;
 
 public class HamsterWheel : MonoBehaviour
 {
-    [SerializeField] GameObject hamsterPrefab;
+    [SerializeField] List<GameObject> hamstersPrefabs;
 
     [SerializeField] int hamsterCost = 10;
     [SerializeField] float hamsterCostUpdaterFactor = 1.5f;
@@ -13,9 +13,8 @@ public class HamsterWheel : MonoBehaviour
     [SerializeField] List<GameObject> hamsterList = new List<GameObject>();
 
     [SerializeField] TextMeshProUGUI hamsterCostCounter;
-    private void Start()
+    private void Awake()
     {
-        CreateHamster();
         UpdateHamsterCostCounter();
     }
 
@@ -30,7 +29,9 @@ public class HamsterWheel : MonoBehaviour
     }
     void CreateHamster()
     {
-        GameObject newHamster = Instantiate(hamsterPrefab, transform.position, Quaternion.identity, transform);
+        int randomHamster = Random.Range(0, hamstersPrefabs.Count);
+        GameObject hamster = hamstersPrefabs[randomHamster];
+        GameObject newHamster = Instantiate(hamster, transform.position, Quaternion.identity, transform);
         hamsterList.Add(newHamster);
     }
 

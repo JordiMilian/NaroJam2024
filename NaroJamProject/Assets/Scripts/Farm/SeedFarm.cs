@@ -17,7 +17,7 @@ public class SeedFarm : MonoBehaviour
 
     [SerializeField] List<GameObject> plantSlots = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
         CreatePlant();
         plantCostText.text = plantCost.ToString();
