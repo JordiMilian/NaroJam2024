@@ -6,20 +6,27 @@ using TMPro;
 public class SeedFarm : MonoBehaviour
 {
     [SerializeField] int plantsCount = 0;
+    [SerializeField] int maxPlants = 8;
     [SerializeField] int plantCost = 10;
     [SerializeField] float plantCostUpdaterFactor = 1.5f;
-    [SerializeField] TextMeshProUGUI plantCostCounter;
-    [SerializeField] TextMeshProUGUI plantCountCounter;
+    [SerializeField] float plantCostTextOffset = -0.373f;
+    [SerializeField] GameObject plantCostObject;
+    [SerializeField] TextMeshPro plantCostText;
+
+    [SerializeField] GameObject plantObject;
+
+    [SerializeField] List<GameObject> plantSlots = new List<GameObject>();
 
     private void Start()
     {
         CreatePlant();
-        UpdatePlantCounter();
-        UpdateCostCounter();
+        plantCostText.text = plantCost.ToString();
     }
 
     public void AddPlant(int num = 1)
     {
+        if (plantsCount == maxPlants) return;
+
         if (GameController.Instance.RemoveSeed(num * plantCost))
         {
             CreatePlant();
@@ -30,25 +37,20 @@ public class SeedFarm : MonoBehaviour
 
     void CreatePlant()
     {
-        GameObject newPlant = new GameObject();
+        GameObject newPlant = Instantiate(plantObject, plantSlots[plantsCount].transform.position, Quaternion.identity, plantSlots[plantsCount].transform);
         newPlant.name = "Plant";
-        newPlant.transform.parent = transform;
-        newPlant.AddComponent<Plant>();
-
         plantsCount++;
-        UpdatePlantCounter();
+
+        if (plantsCount < maxPlants)
+        {
+            plantCostObject.transform.position = plantSlots[plantsCount].transform.position;
+            plantCostObject.transform.position += Vector3.up * plantCostTextOffset;
+        }
+        else Destroy(plantCostObject);
     }
     void UpdateCost()
     {
         plantCost = (int)(plantCost * plantCostUpdaterFactor);
-        UpdateCostCounter();
-    }
-    void UpdateCostCounter()
-    {
-        plantCostCounter.text = "Cost: " + plantCost.ToString();
-    }
-    void UpdatePlantCounter()
-    {
-        plantCountCounter.text = "Plant number: " + plantsCount.ToString();
+        plantCostText.text = plantCost.ToString();
     }
 }
