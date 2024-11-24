@@ -6,7 +6,7 @@ public class Cat : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
     [SerializeField] private int hitPoints = 1;
-
+    Animator catAnimtor;
     public bool inmortal = true;
 
     private bool changingSpeed = false;
@@ -14,13 +14,14 @@ public class Cat : MonoBehaviour
     private void Awake()
     {
         changingSpeed = false;
+        catAnimtor = GetComponent<Animator>();
     }
     public void GetDamage(int hitDamage = 1)
     {
         if(changingSpeed == false) StartCoroutine(ChangeSpeed(0.1f, 0.1f));
         if (inmortal) return;
         hitPoints -= hitDamage;
-
+        catAnimtor.SetTrigger("hit");
         if(hitPoints <= 0 )
         {
             Die();

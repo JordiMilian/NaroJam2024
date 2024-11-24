@@ -12,6 +12,7 @@ public class Cannon : MonoBehaviour
 
     [SerializeField] Color enabledColor, disabledColor;
     [SerializeField] SpriteRenderer OnOffButtonSprite;
+    Animator cannonAnimator; 
 
     bool isTakingDamage = false;
     private bool cannonEnabled = true;
@@ -23,14 +24,14 @@ public class Cannon : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
-
+        cannonAnimator = GetComponent<Animator>();
         cannonEnabled = true;
         OnOffButtonSprite.color = enabledColor;
     }
     public void Shoot()
     {
         if (cannonEnabled == false) return;
-        if(GameController.Instance.RemoveSeed(1)) Instantiate(seed, shootPoint.transform.position, Quaternion.identity, transform);
+        if(GameController.Instance.RemoveSeed(1)) Instantiate(seed, shootPoint.transform.position, Quaternion.identity, transform); cannonAnimator.SetTrigger("shoot");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -55,6 +56,7 @@ public class Cannon : MonoBehaviour
     {
         yield return null;
         // IMPLEMENTAR ANIMACION
+        cannonAnimator.SetTrigger("hit");
 
         hitPoints -= 1;
 
@@ -80,6 +82,8 @@ public class Cannon : MonoBehaviour
     }
     private void Die()
     {
+        cannonAnimator.SetTrigger("death");
+        cannonAnimator.SetBool("hit",false);
         //Die
     }
 }
