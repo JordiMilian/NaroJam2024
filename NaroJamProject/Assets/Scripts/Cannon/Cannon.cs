@@ -25,13 +25,11 @@ public class Cannon : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
         cannonAnimator = GetComponent<Animator>();
         cannonEnabled = true;
         OnOffButtonSprite.color = enabledColor;
-        ResetAnimationState();
     }
     public void Shoot()
     {
@@ -83,9 +81,5 @@ public class Cannon : MonoBehaviour
             OnOffButtonSprite.color = disabledColor;
             SFX_PlayerSingleton.Instance.playSFX(disableSound, 0.1f);
         }
-    }
-    public void ResetAnimationState()
-    {
-        cannonAnimator.SetTrigger("reset");
     }
 }
