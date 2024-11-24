@@ -25,7 +25,7 @@ public class SeedCounter : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(seedCheckTimer);
+            yield return null;
 
             int seeds = GameController.Instance.GetSeedsNumber();
             int hungry = GameController.Instance.GetHungry();
