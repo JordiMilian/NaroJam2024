@@ -19,15 +19,17 @@ public class Plant : MonoBehaviour
 
     [SerializeField] GameObject harvestUI;
     [SerializeField] TextMeshPro seedText;
-    [SerializeField] Animation animation;
     public SpriteRenderer plantRenderer;
-    [SerializeField] GameObject harvestIndicator;
+    [SerializeField] Animation harvestUIAnimation;
+    [SerializeField] AudioClip appearSFX, harvestableSFX, harvestedSFX, upgradedSFX;
+   // [SerializeField] GameObject harvestIndicator;
 
     public bool canHarvest = false;
+    Animator plantAnimator;
     private void Awake()
     {
         harvestUI.SetActive(false);
-        harvestIndicator.SetActive(false);
+        plantAnimator = GetComponent<Animator>();
     }
     private void Start()
     {
@@ -35,7 +37,8 @@ public class Plant : MonoBehaviour
 
         harvestTime = harvestTimeUpgrade0;
         seedsPerHarvest = seedsPerHarvestUpgrade0;
-
+        plantAnimator.SetTrigger("appear");
+        SFX_PlayerSingleton.Instance.playSFX(appearSFX);
         StartCoroutine(WaitForHarvest());
     }
 
@@ -43,11 +46,12 @@ public class Plant : MonoBehaviour
     {
         if (canHarvest == false) return;
 
-        harvestIndicator.SetActive(false);
+        plantAnimator.SetBool("harvestable", false);
+        SFX_PlayerSingleton.Instance.playSFX(harvestedSFX,0.1f);
         Debug.Log("Harvesting plant");
         seedText.text = "+" + seedsPerHarvest.ToString();
         harvestUI.SetActive(true);
-        animation.Play();
+        harvestUIAnimation.Play();
         GameController.Instance.AddSeed(seedsPerHarvest);
 
         StartCoroutine(WaitForHarvest());
@@ -55,7 +59,8 @@ public class Plant : MonoBehaviour
     IEnumerator WaitForHarvest()
     {
         yield return new WaitForSeconds(harvestTime);
-        harvestIndicator.SetActive(true);
+        plantAnimator.SetBool("harvestable", true);
+        SFX_PlayerSingleton.Instance.playSFX(harvestableSFX,0.1f);
         canHarvest = true;
     }
 
@@ -63,12 +68,16 @@ public class Plant : MonoBehaviour
     {
         harvestTime = harvestTimeUpgrade1;
         seedsPerHarvest = seedsPerHarvestUpgrade1;
+        plantAnimator.SetTrigger("upgraded");
+        SFX_PlayerSingleton.Instance.playSFX(upgradedSFX);
     }
 
     public void UpgradeHarvest2()
     {
         harvestTime = harvestTimeUpgrade2;
         seedsPerHarvest = seedsPerHarvestUpgrade2;
+        plantAnimator.SetTrigger("upgraded");
+        SFX_PlayerSingleton.Instance.playSFX(upgradedSFX);
     }
 
 }
