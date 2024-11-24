@@ -6434,6 +6434,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6051746360225712851, guid: d7ce7548c031cda4bbfb7c369d70d633, type: 3}
+      propertyPath: enableSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cfd5b163fcc72d84a8cd03bbf3e97ef0, type: 3}
+    - target: {fileID: 6051746360225712851, guid: d7ce7548c031cda4bbfb7c369d70d633, type: 3}
+      propertyPath: disableSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cfd5b163fcc72d84a8cd03bbf3e97ef0, type: 3}
+    - target: {fileID: 6051746360225712851, guid: d7ce7548c031cda4bbfb7c369d70d633, type: 3}
       propertyPath: deathCanonSFX
       value: 
       objectReference: {fileID: 8300000, guid: 49577ef5d59099047ac2b0bffe1dc839, type: 3}

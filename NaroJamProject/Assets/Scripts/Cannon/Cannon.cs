@@ -15,7 +15,7 @@ public class Cannon : MonoBehaviour
     Animator cannonAnimator;
     [SerializeField] List<AudioClip> hitCanonSFXList = new List<AudioClip>();
     private AudioClip hitCanonSFX;
-    [SerializeField] AudioClip deathCanonSFX, shootSFX;
+    [SerializeField] AudioClip deathCanonSFX, shootSFX, enableSound, disableSound;
     [SerializeField] GameObject PipasVFXPrefab;
     [SerializeField] Transform VfxPosition;
 
@@ -75,10 +75,12 @@ public class Cannon : MonoBehaviour
         if(cannonEnabled)
         {
             OnOffButtonSprite.color = enabledColor;
+            SFX_PlayerSingleton.Instance.playSFX(enableSound, 0.1f);
         }
         else
         {
             OnOffButtonSprite.color = disabledColor;
+            SFX_PlayerSingleton.Instance.playSFX(disableSound, 0.1f);
         }
     }
 }

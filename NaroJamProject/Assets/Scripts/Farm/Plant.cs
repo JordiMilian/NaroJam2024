@@ -46,6 +46,7 @@ public class Plant : MonoBehaviour
     {
         if (canHarvest == false) return;
 
+        canHarvest = false;
         plantAnimator.SetBool("harvestable", false);
         SFX_PlayerSingleton.Instance.playSFX(harvestedSFX,0.1f);
         Debug.Log("Harvesting plant");
