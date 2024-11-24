@@ -4669,6 +4669,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1262263390 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5443524202356540133, guid: d7ce7548c031cda4bbfb7c369d70d633, type: 3}
+  m_PrefabInstance: {fileID: 1751612620}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &1262263393
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262263390}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 4
 --- !u!1 &1320702947
 GameObject:
   m_ObjectHideFlags: 0
@@ -6305,7 +6321,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -537987921
   m_SortingLayer: -1
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: b4b22bd236b64584a9c3115be4a0ebe3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -6457,6 +6473,10 @@ PrefabInstance:
       propertyPath: hitCanonSFXList.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: 4161b90d5a6ae5445986efde6f31f565, type: 3}
+    - target: {fileID: 7021330222170535811, guid: d7ce7548c031cda4bbfb7c369d70d633, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7ce7548c031cda4bbfb7c369d70d633, type: 3}
 --- !u!114 &1751612622 stripped

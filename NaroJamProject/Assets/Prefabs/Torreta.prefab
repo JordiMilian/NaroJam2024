@@ -109,6 +109,8 @@ MonoBehaviour:
   hitCanonSFXList: []
   deathCanonSFX: {fileID: 0}
   shootSFX: {fileID: 8300000, guid: 0b08eec961d712b4ca0dae794c2fcef7, type: 3}
+  enableSound: {fileID: 0}
+  disableSound: {fileID: 0}
   PipasVFXPrefab: {fileID: 8357574923652912465, guid: 599d815897e13074db2f461f19e88fb1, type: 3}
   VfxPosition: {fileID: 8769052753016686934}
 --- !u!1 &1688677948741714267
@@ -532,7 +534,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2663041012904179883
 MonoBehaviour:
@@ -718,7 +720,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 116c59ddf2986094590c93a250764b87, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
