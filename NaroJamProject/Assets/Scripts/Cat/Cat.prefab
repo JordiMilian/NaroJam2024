@@ -219,6 +219,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.78
   hitPoints: 12
+  damagedCatSFX: {fileID: 8300000, guid: 2e699f7110c19aa4a8435a406d2d34a7, type: 3}
+  deathCatSFX: {fileID: 0}
+  startCatAttackSFX: {fileID: 0}
   inmortal: 1
 --- !u!61 &2085900958837762927
 BoxCollider2D:
