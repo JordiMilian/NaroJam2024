@@ -91,6 +91,10 @@ MonoBehaviour:
   seedText: {fileID: 3293871890775616791}
   plantRenderer: {fileID: 47268726910673898}
   harvestUIAnimation: {fileID: 794279772926933433}
+  appearSFX: {fileID: 8300000, guid: e3d0658dd3eb51e4f86cff3282068e4f, type: 3}
+  harvestableSFX: {fileID: 8300000, guid: 17bd3d460bbe71948b5c6d4b47b29d52, type: 3}
+  harvestedSFX: {fileID: 8300000, guid: 2f467c15cb1404b459e568e563d60dbd, type: 3}
+  upgradedSFX: {fileID: 8300000, guid: 1571a559e2b5eb443a09f2717c12bf56, type: 3}
   canHarvest: 0
 --- !u!95 &8485338216425732650
 Animator:
