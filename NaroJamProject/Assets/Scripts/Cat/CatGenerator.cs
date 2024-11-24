@@ -29,9 +29,9 @@ public class CatGenerator : MonoBehaviour
             yield return new WaitForSeconds(catGenerationTime);
 
             GenerateCat();
-            catGenerationTime *= 0.85f;
+            catGenerationTime *= 0.95f;
 
-            if (catGenerationTime < 0.2f) catGenerationTime = 0.2f;
+            if (catGenerationTime < 0.5f) catGenerationTime = 0.2f;
         }
     }
 

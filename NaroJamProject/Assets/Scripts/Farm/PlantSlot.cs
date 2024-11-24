@@ -11,7 +11,7 @@ public class PlantSlot : MonoBehaviour
 
     [SerializeField] Sprite plantUpgrade1, plantUpgrade2;
 
-    [SerializeField] TextMeshProUGUI priceText;
+    TextMeshProUGUI priceText;
     [SerializeField] GameObject buyButton;
 
     [SerializeField] int plantState = 0;
@@ -28,6 +28,7 @@ public class PlantSlot : MonoBehaviour
             CheckPrice();
             if (nextSlot != null) nextSlot.EnableSlot();
         }
+
     }
     private void Awake()
     {
@@ -37,6 +38,8 @@ public class PlantSlot : MonoBehaviour
         {
             buyButton.SetActive(false);
         }
+
+        priceText = buyButton.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void OnEnable()

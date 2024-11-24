@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.78
-  hitPoints: 15
+  hitPoints: 12
   inmortal: 1
 --- !u!61 &2085900958837762927
 BoxCollider2D:
