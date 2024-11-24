@@ -9,7 +9,7 @@ public class Hamster : MonoBehaviour
 
     [SerializeField] int hungry = 2;
 
-    [SerializeField] ParticleSystem explosionHitVFX;
+    [SerializeField] GameObject explosionHitVFX;
     Rigidbody2D rb;
 
     Cannon cannon;
@@ -42,7 +42,7 @@ public class Hamster : MonoBehaviour
         float bounceStrenght = Random.Range(minBounceStrenght, maxBounceStrenght);
         rb.AddForce(collision.contacts[0].normal * bounceStrenght);
 
-        explosionHitVFX.Play();
+        Instantiate(explosionHitVFX, collision.contacts[0].point, Quaternion.identity, null);
 
         if (collision.gameObject.layer != 6)
         {
