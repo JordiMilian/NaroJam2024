@@ -91,6 +91,11 @@ public class GameController : MonoBehaviour
         {
             ResetScene();
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void ResetScene()

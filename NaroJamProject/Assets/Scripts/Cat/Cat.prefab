@@ -220,9 +220,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.78
   hitPoints: 12
+  startCatAttackSFX:
+  - {fileID: 8300000, guid: 6d7d83a83fb45c7419cda0acf7b7b821, type: 3}
+  - {fileID: 8300000, guid: 6424bcb94d33e47489d40465c027ef9e, type: 3}
+  - {fileID: 8300000, guid: 7e8552f4f1190f640b58037dfb7daa3c, type: 3}
   damagedCatSFX: {fileID: 8300000, guid: 2e699f7110c19aa4a8435a406d2d34a7, type: 3}
-  deathCatSFX: {fileID: 0}
-  startCatAttackSFX: {fileID: 0}
+  deathCatSFX: {fileID: 8300000, guid: 93b0baf83dea50845b7235831729dca4, type: 3}
   inmortal: 1
 --- !u!61 &2085900958837762927
 BoxCollider2D:

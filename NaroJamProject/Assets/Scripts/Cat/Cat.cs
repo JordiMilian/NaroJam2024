@@ -6,7 +6,8 @@ public class Cat : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
     [SerializeField] private int hitPoints = 1;
-    [SerializeField] AudioClip damagedCatSFX, deathCatSFX, startCatAttackSFX;
+    [SerializeField] List<AudioClip> startCatAttackSFX = new List<AudioClip>();
+    [SerializeField] AudioClip damagedCatSFX, deathCatSFX;
     Animator catAnimtor;
     public bool inmortal = true;
     bool readyToAttack;
@@ -61,7 +62,9 @@ public class Cat : MonoBehaviour
     {
         readyToAttack = true;
         catAnimtor.SetBool("inRangeToAttack",true);
-        SFX_PlayerSingleton.Instance.playSFX(startCatAttackSFX,0.1f);
+
+        AudioClip randomSound = startCatAttackSFX[Random.RandomRange(0, startCatAttackSFX.Count)];
+        SFX_PlayerSingleton.Instance.playSFX(randomSound, 0.1f);
     }
     void Die()
     {

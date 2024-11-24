@@ -106,11 +106,13 @@ MonoBehaviour:
   enabledColor: {r: 1, g: 1, b: 1, a: 1}
   disabledColor: {r: 0.2784314, g: 0.06666667, b: 0.003921569, a: 1}
   OnOffButtonSprite: {fileID: 8235442425549014680}
-  hitCanonSFXList: []
-  deathCanonSFX: {fileID: 0}
+  hitCanonSFXList:
+  - {fileID: 8300000, guid: fc5e70cffee5ac542af67c8c089ff942, type: 3}
+  - {fileID: 8300000, guid: 4161b90d5a6ae5445986efde6f31f565, type: 3}
+  deathCanonSFX: {fileID: 8300000, guid: 49577ef5d59099047ac2b0bffe1dc839, type: 3}
   shootSFX: {fileID: 8300000, guid: 0b08eec961d712b4ca0dae794c2fcef7, type: 3}
-  enableSound: {fileID: 0}
-  disableSound: {fileID: 0}
+  enableSound: {fileID: 8300000, guid: f051f80045ead4145ab29d5d6facc130, type: 3}
+  disableSound: {fileID: 8300000, guid: 711cda832cc79014fb5ec30ac738f604, type: 3}
   PipasVFXPrefab: {fileID: 8357574923652912465, guid: 599d815897e13074db2f461f19e88fb1, type: 3}
   VfxPosition: {fileID: 8769052753016686934}
 --- !u!1 &1688677948741714267
@@ -123,6 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3839060886680984294}
   - component: {fileID: 2659641616848876311}
+  - component: {fileID: 1867819045}
   m_Layer: 0
   m_Name: CatCollider
   m_TagString: CatCollider
@@ -171,6 +174,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &1867819045
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688677948741714267}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1861727712988689001
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4189231846717321271}
   - component: {fileID: 7021330222170535811}
+  - component: {fileID: 1262263393}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -732,6 +757,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &1262263393
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5443524202356540133}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 4
 --- !u!1 &7168226033984651042
 GameObject:
   m_ObjectHideFlags: 0

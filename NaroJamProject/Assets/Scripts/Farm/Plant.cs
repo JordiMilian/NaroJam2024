@@ -22,6 +22,8 @@ public class Plant : MonoBehaviour
     public SpriteRenderer plantRenderer;
     [SerializeField] Animation harvestUIAnimation;
     [SerializeField] AudioClip appearSFX, harvestableSFX, harvestedSFX, upgradedSFX;
+
+    [SerializeField] GameObject harvestPartycle;
    // [SerializeField] GameObject harvestIndicator;
 
     public bool canHarvest = false;
@@ -34,7 +36,8 @@ public class Plant : MonoBehaviour
     private void Start()
     {
         canHarvest = false;
-
+        harvestPartycle.GetComponent<ParticleSystem>().Stop();
+        harvestPartycle.SetActive(false);
         harvestTime = harvestTimeUpgrade0;
         seedsPerHarvest = seedsPerHarvestUpgrade0;
         plantAnimator.SetTrigger("appear");
@@ -47,6 +50,8 @@ public class Plant : MonoBehaviour
         if (canHarvest == false) return;
 
         canHarvest = false;
+        harvestPartycle.GetComponent<ParticleSystem>().Stop();
+        harvestPartycle.SetActive(false);
         plantAnimator.SetBool("harvestable", false);
         SFX_PlayerSingleton.Instance.playSFX(harvestedSFX,0.1f);
         Debug.Log("Harvesting plant");
@@ -62,6 +67,8 @@ public class Plant : MonoBehaviour
         yield return new WaitForSeconds(harvestTime);
         plantAnimator.SetBool("harvestable", true);
         SFX_PlayerSingleton.Instance.playSFX(harvestableSFX,0.1f);
+        harvestPartycle.SetActive(true);
+        harvestPartycle.GetComponent<ParticleSystem>().Play();
         canHarvest = true;
     }
 
