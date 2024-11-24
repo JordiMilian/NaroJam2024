@@ -31,7 +31,10 @@ public class MusicPlayer : MonoBehaviour
         }
         while (RandomIndex == lastSongIndex);
 
+        musicSource.clip = SongsList[RandomIndex];
+        musicSource.Play();
         yield return new WaitForSeconds(SongsList[RandomIndex].length);
+        musicSource.Stop();
         yield return new WaitForSeconds(Random.Range(minPauseBetweenSongs,maxPauseBetweenSongs));
 
         StartCoroutine(playRandomSong(RandomIndex));

@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 7982127447856932435}
   m_Layer: 7
   m_Name: Cat
-  m_TagString: CatCollider
+  m_TagString: CatHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

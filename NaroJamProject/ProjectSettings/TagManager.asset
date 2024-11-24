@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CatCollider
   - Destroyer
+  - CatHitBox
   layers:
   - Default
   - TransparentFX
