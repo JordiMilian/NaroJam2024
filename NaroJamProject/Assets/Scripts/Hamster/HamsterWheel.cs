@@ -45,6 +45,6 @@ public class HamsterWheel : MonoBehaviour
 
     void UpdateHamsterCostCounter()
     {
-        hamsterCostCounter.text = "Cost: " + hamsterCost.ToString();
+        hamsterCostCounter.text = hamsterCost.ToString();
     }
 }
