@@ -411,7 +411,7 @@ MonoBehaviour:
   seedBank: 0
   hamstersHungry: 0
   timeForSeedConsume: 2
-  initialSeeds: 25
+  initialSeeds: 5
   resetTutorialRoot: {fileID: 807202467}
 --- !u!4 &18508275
 Transform:

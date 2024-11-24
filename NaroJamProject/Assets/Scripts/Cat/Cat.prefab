@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.78
-  hitPoints: 12
+  hitPoints: 8
   startCatAttackSFX:
   - {fileID: 8300000, guid: 6d7d83a83fb45c7419cda0acf7b7b821, type: 3}
   - {fileID: 8300000, guid: 6424bcb94d33e47489d40465c027ef9e, type: 3}
