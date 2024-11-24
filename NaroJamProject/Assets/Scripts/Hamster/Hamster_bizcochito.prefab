@@ -174,3 +174,4 @@ MonoBehaviour:
   maxAngle: 60
   hungry: 1
   explosionHitVFX: {fileID: 2162089852551605248, guid: 7fda7f3b262798641a581a6023c05834, type: 3}
+  bounceToWallSFX: {fileID: 8300000, guid: 0185120eb4329824abd5bc7a2e311c82, type: 3}

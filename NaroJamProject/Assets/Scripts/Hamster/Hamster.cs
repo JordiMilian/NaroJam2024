@@ -10,6 +10,7 @@ public class Hamster : MonoBehaviour
     [SerializeField] int hungry = 2;
 
     [SerializeField] GameObject explosionHitVFX;
+    [SerializeField] AudioClip bounceToWallSFX;
     Rigidbody2D rb;
 
     Cannon cannon;
@@ -51,6 +52,8 @@ public class Hamster : MonoBehaviour
                 Cannon.Instance.Shoot();
                 canShoot = false;
                 StartCoroutine(DelayTimeForShoot());
+                SFX_PlayerSingleton.Instance.playSFX(bounceToWallSFX, 0.2f);
+
             }
         }
     }

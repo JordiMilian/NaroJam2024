@@ -95,6 +95,7 @@ public class GameController : MonoBehaviour
 
     void ResetScene()
     {
+        Cannon.Instance.ResetAnimationState();
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
     }
