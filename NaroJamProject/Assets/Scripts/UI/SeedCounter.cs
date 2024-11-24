@@ -5,13 +5,13 @@ using TMPro;
 
 public class SeedCounter : MonoBehaviour
 {
-    TextMeshProUGUI textMeshPro;
+    TextMeshPro textMeshPro;
     [SerializeField] private float seedCheckTimer = 1f;
     private void Awake()
     {
         if (textMeshPro == null) 
         {
-            textMeshPro = GetComponent<TextMeshProUGUI>();
+            textMeshPro = GetComponent<TextMeshPro>();
         }
     }
 

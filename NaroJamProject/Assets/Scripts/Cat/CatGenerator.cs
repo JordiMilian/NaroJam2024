@@ -29,9 +29,12 @@ public class CatGenerator : MonoBehaviour
             yield return new WaitForSeconds(catGenerationTime);
 
             GenerateCat();
-            catGenerationTime *= 0.95f;
 
-            if (catGenerationTime < 0.5f) catGenerationTime = 0.2f;
+            float randFloat = UnityEngine.Random.Range(0.95f, 0.99f);
+            catGenerationTime *= randFloat;
+
+
+            if (catGenerationTime < 0.5f) catGenerationTime = 0.5f;
         }
     }
 
