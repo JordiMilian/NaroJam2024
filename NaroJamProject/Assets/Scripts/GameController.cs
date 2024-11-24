@@ -107,6 +107,7 @@ public class GameController : MonoBehaviour
     {
         if(resetTutorialRoot != null)
         {
+            seedBank = 0;
             MusicPlayer.Instance.PlayDeathMusic();
             resetTutorialRoot.gameObject.SetActive(true);
         }
