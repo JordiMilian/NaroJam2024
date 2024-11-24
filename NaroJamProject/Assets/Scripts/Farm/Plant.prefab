@@ -82,12 +82,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec6fa931af9613340b597ba77d2fadd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  harvestTimeUpgrade0: 12
+  harvestTimeUpgrade0: 8
   seedsPerHarvestUpgrade0: 10
-  harvestTimeUpgrade1: 8
-  seedsPerHarvestUpgrade1: 15
+  harvestTimeUpgrade1: 6
+  seedsPerHarvestUpgrade1: 20
   harvestTimeUpgrade2: 5
-  seedsPerHarvestUpgrade2: 25
+  seedsPerHarvestUpgrade2: 30
   harvestUI: {fileID: 5785812560080482544}
   seedText: {fileID: 3293871890775616791}
   plantRenderer: {fileID: 47268726910673898}

@@ -112,7 +112,7 @@ MonoBehaviour:
   deathCanonSFX: {fileID: 8300000, guid: 49577ef5d59099047ac2b0bffe1dc839, type: 3}
   shootSFX: {fileID: 8300000, guid: 0b08eec961d712b4ca0dae794c2fcef7, type: 3}
   enableSound: {fileID: 8300000, guid: f051f80045ead4145ab29d5d6facc130, type: 3}
-  disableSound: {fileID: 8300000, guid: 711cda832cc79014fb5ec30ac738f604, type: 3}
+  disableSound: {fileID: 8300000, guid: d7ce26bce55d73b4e82e0db66d1bc473, type: 3}
   PipasVFXPrefab: {fileID: 8357574923652912465, guid: 599d815897e13074db2f461f19e88fb1, type: 3}
   VfxPosition: {fileID: 8769052753016686934}
 --- !u!1 &1688677948741714267
