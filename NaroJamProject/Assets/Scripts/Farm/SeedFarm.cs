@@ -5,52 +5,55 @@ using TMPro;
 
 public class SeedFarm : MonoBehaviour
 {
-    [SerializeField] int plantsCount = 0;
-    [SerializeField] int maxPlants = 8;
-    [SerializeField] int plantCost = 10;
+    public int plantsCount = 0;
+    public int maxPlants { get; private set; } = 8;
+    public int plantCost = 10;
+    public int plantUpgrade1Cost = 20;
+    public int plantUpgrade2Cost = 50;
+
     [SerializeField] float plantCostUpdaterFactor = 1.5f;
     [SerializeField] float plantCostTextOffset = -0.373f;
-    [SerializeField] GameObject plantCostObject;
-    [SerializeField] TextMeshPro plantCostText;
 
     [SerializeField] GameObject plantObject;
 
-    [SerializeField] List<GameObject> plantSlots = new List<GameObject>();
+    [SerializeField] List<PlantSlot> plantSlots = new List<PlantSlot>();
+
+    public static SeedFarm Instance { get; private set; }
 
     private void Awake()
     {
-        CreatePlant();
-        plantCostText.text = plantCost.ToString();
-    }
-
-    public void AddPlant(int num = 1)
-    {
-        if (plantsCount == maxPlants) return;
-
-        if (GameController.Instance.RemoveSeed(num * plantCost))
+        if (Instance == null)
         {
-            CreatePlant();
-            UpdateCost();
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else Debug.Log("Not enough seeds for the plant");
-    }
+        else Destroy(gameObject);
 
-    void CreatePlant()
-    {
-        GameObject newPlant = Instantiate(plantObject, plantSlots[plantsCount].transform.position, Quaternion.identity, plantSlots[plantsCount].transform);
-        newPlant.name = "Plant";
-        plantsCount++;
-
-        if (plantsCount < maxPlants)
-        {
-            plantCostObject.transform.position = plantSlots[plantsCount].transform.position;
-            plantCostObject.transform.position += Vector3.up * plantCostTextOffset;
-        }
-        else Destroy(plantCostObject);
+        UpdatePrices();
     }
-    void UpdateCost()
+    public void UpdateBuyPlantCost()
     {
         plantCost = (int)(plantCost * plantCostUpdaterFactor);
-        plantCostText.text = plantCost.ToString();
+        UpdatePrices();
+    }
+
+    public void UpdateUpgrade1PlantCost()
+    {
+        plantUpgrade1Cost = (int)(plantUpgrade1Cost * plantCostUpdaterFactor);
+        UpdatePrices();
+    }
+
+    public void UpdateUpgrade2PlantCost()
+    {
+        plantUpgrade2Cost = (int)(plantUpgrade2Cost * plantCostUpdaterFactor);
+        UpdatePrices();
+    }
+
+    void UpdatePrices()
+    {
+        for (int i = 0; i < plantSlots.Count; i++)
+        {
+            plantSlots[i].CheckPrice();
+        }
     }
 }

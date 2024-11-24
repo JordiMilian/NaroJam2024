@@ -5,14 +5,20 @@ using UnityEngine;
 public class CatGenerator : MonoBehaviour
 {
     [SerializeField] float catGenerationTime = 5f;
+    [SerializeField] float catFirstGenerationTime = 10f;
     [SerializeField] List<GameObject> catList = new List<GameObject>();
     [SerializeField] GameObject spawnPoint;
 
     private void Start()
     {
-        StartCoroutine(CatGeneratorCoroutine());
+        StartCoroutine(FirstStart());
     }
 
+    IEnumerator FirstStart()
+    {
+        yield return new WaitForSeconds(catFirstGenerationTime);
+        StartCoroutine(CatGeneratorCoroutine());
+    }
     IEnumerator CatGeneratorCoroutine()
     {
         while(true)

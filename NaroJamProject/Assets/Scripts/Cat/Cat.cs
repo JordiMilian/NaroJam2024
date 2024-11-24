@@ -8,8 +8,16 @@ public class Cat : MonoBehaviour
     [SerializeField] private int hitPoints = 1;
 
     public bool inmortal = true;
+
+    private bool changingSpeed = false;
+
+    private void Awake()
+    {
+        changingSpeed = false;
+    }
     public void GetDamage(int hitDamage = 1)
     {
+        if(changingSpeed == false) StartCoroutine(ChangeSpeed(0.1f, 0.1f));
         if (inmortal) return;
         hitPoints -= hitDamage;
 
@@ -17,6 +25,17 @@ public class Cat : MonoBehaviour
         {
             Die();
         }
+    }
+
+    IEnumerator ChangeSpeed(float newSpeed, float time)
+    {
+        changingSpeed = true;
+        float orgSpeed = speed;
+        speed = newSpeed;
+        yield return new WaitForSeconds(time);
+
+        speed = orgSpeed;
+        changingSpeed = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
