@@ -11,7 +11,8 @@ public class SeedBullet : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.transform.tag == "CatHitBox")
+        Debug.Log("seed collided with:" + collision.gameObject.name);
+        if (collision.transform.gameObject.layer == 7)
         {
             collision.transform.GetComponent<Cat>().GetDamage(1);
 

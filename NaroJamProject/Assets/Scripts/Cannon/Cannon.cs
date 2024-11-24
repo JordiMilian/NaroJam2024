@@ -14,6 +14,8 @@ public class Cannon : MonoBehaviour
     [SerializeField] SpriteRenderer OnOffButtonSprite;
     Animator cannonAnimator;
     [SerializeField] AudioClip hitCanonSFX, deathCanonSFX, shootSFX;
+    [SerializeField] GameObject PipasVFXPrefab;
+    [SerializeField] Transform VfxPosition;
 
     private bool cannonEnabled = true;
     private void Awake()
@@ -48,6 +50,7 @@ public class Cannon : MonoBehaviour
             cannonAnimator.SetTrigger("death");
             GameController.Instance.showResetTutorial();
             SFX_PlayerSingleton.Instance.playSFX(deathCanonSFX);
+            Instantiate(PipasVFXPrefab, VfxPosition.position, Quaternion.identity);
         }
         else if(hitPoints > 0)
         {
