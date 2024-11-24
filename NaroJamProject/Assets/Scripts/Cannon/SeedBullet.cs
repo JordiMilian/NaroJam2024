@@ -9,7 +9,7 @@ public class SeedBullet : MonoBehaviour
     {
         transform.position += Vector3.right * speed * Time.deltaTime;
     }
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("seed collided with:" + collision.gameObject.name);
         if (collision.transform.gameObject.layer == 7)

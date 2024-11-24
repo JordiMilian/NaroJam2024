@@ -6,9 +6,22 @@ using UnityEngine;
 public class MusicPlayer : MonoBehaviour
 {
     [SerializeField] List<AudioClip> SongsList;
+    [SerializeField] AudioClip deathSong;
     [SerializeField] float minPauseBetweenSongs, maxPauseBetweenSongs;
     [SerializeField] CatGenerator catGenerator;
     AudioSource musicSource;
+
+    public static MusicPlayer Instance { get; private set; }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else Destroy(gameObject);
+    }
     private void OnEnable()
     {
         musicSource = GetComponent<AudioSource>();
@@ -38,5 +51,13 @@ public class MusicPlayer : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(minPauseBetweenSongs,maxPauseBetweenSongs));
 
         StartCoroutine(playRandomSong(RandomIndex));
+    }
+
+    public void PlayDeathMusic()
+    {
+        StopAllCoroutines();
+        musicSource.Stop();
+        musicSource.clip = deathSong;
+        musicSource.Play();
     }
 }
