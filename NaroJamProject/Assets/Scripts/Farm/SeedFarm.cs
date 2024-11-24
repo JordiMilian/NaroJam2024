@@ -29,28 +29,29 @@ public class SeedFarm : MonoBehaviour
         }
         else Destroy(gameObject);
 
-        UpdatePrices();
+        StartCoroutine(UpdatePrices());
     }
     public void UpdateBuyPlantCost()
     {
         plantCost = (int)(plantCost * plantCostUpdaterFactor);
-        UpdatePrices();
+        StartCoroutine(UpdatePrices());
     }
 
     public void UpdateUpgrade1PlantCost()
     {
         plantUpgrade1Cost = (int)(plantUpgrade1Cost * plantCostUpdaterFactor);
-        UpdatePrices();
+        StartCoroutine(UpdatePrices());
     }
 
     public void UpdateUpgrade2PlantCost()
     {
         plantUpgrade2Cost = (int)(plantUpgrade2Cost * plantCostUpdaterFactor);
-        UpdatePrices();
+        StartCoroutine(UpdatePrices());
     }
 
-    void UpdatePrices()
+    IEnumerator UpdatePrices()
     {
+        yield return new WaitForEndOfFrame();
         for (int i = 0; i < plantSlots.Count; i++)
         {
             plantSlots[i].CheckPrice();

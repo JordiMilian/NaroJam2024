@@ -24,6 +24,8 @@ public class HamsterWheel : MonoBehaviour
         {
             CreateHamster();
             UpdateHamsterCost();
+
+            GameController.Instance.AddHamster();
         }
         else Debug.Log("Not enough seeds for the hamster");
     }

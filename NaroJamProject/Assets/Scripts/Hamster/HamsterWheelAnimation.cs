@@ -8,6 +8,6 @@ public class HamsterWheelAnimation : MonoBehaviour
 
     private void Update()
     {
-        transform.Rotate(0, 0, speedRotation * Time.deltaTime, Space.Self);
+        transform.Rotate(0, 0,  speedRotation * (GameController.Instance.numHamsters * 0.5f) * Time.deltaTime, Space.Self);
     }
 }

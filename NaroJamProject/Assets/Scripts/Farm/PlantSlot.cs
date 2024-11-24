@@ -14,20 +14,14 @@ public class PlantSlot : MonoBehaviour
     [SerializeField] TextMeshProUGUI priceText;
     [SerializeField] GameObject buyButton;
 
-    int plantState = 0;
+    [SerializeField] int plantState = 0;
 
     [SerializeField] bool enableOnStart = false;
     [SerializeField] PlantSlot nextSlot = null;
 
     private void Start()
     {
-        plantState = 0;
-
-        if (enableOnStart == false)
-        {
-            buyButton.SetActive(false);
-        }
-        else
+        if(enableOnStart)
         {
             plantState = 1;
             CreatePlant();
@@ -35,7 +29,20 @@ public class PlantSlot : MonoBehaviour
             if (nextSlot != null) nextSlot.EnableSlot();
         }
     }
+    private void Awake()
+    {
+        plantState = 0;
 
+        if (enableOnStart == false)
+        {
+            buyButton.SetActive(false);
+        }
+    }
+
+    private void OnEnable()
+    {
+        plantState = 0;
+    }
     public void EnableSlot()
     {
         plantState = 0;
@@ -50,8 +57,8 @@ public class PlantSlot : MonoBehaviour
 
             if (GameController.Instance.RemoveSeed(num * SeedFarm.Instance.plantCost))
             {
-                CreatePlant();
                 SeedFarm.Instance.UpdateBuyPlantCost();
+                CreatePlant();
 
                 if (nextSlot != null) nextSlot.EnableSlot();
             }
@@ -75,10 +82,11 @@ public class PlantSlot : MonoBehaviour
 
     void CreatePlant()
     {
+        plantState = 1;
+
         GameObject newPlant = Instantiate(plantObject, transform.position, Quaternion.identity, transform);
         plant = newPlant.GetComponent<Plant>();
         newPlant.name = "Plant";
-        plantState = 1;
 
         SeedFarm.Instance.plantsCount++;
     }
@@ -92,22 +100,24 @@ public class PlantSlot : MonoBehaviour
 
     void UpgradePlant1()
     {
+        plantState = 2;
+
         SeedFarm.Instance.UpdateUpgrade1PlantCost();
 
         plant.plantRenderer.sprite = plantUpgrade1;
         plant.UpgradeHarvest1();
-        plantState = 2;
     }
 
     void UpgradePlant2()
     {
+        plantState = 3;
+
         SeedFarm.Instance.UpdateUpgrade2PlantCost();
 
         plant.plantRenderer.sprite = plantUpgrade2;
 
         buyButton.SetActive(false);
         plant.UpgradeHarvest2();
-        plantState = 3;
     }
 
     public void HarvestPlant()

@@ -12,6 +12,8 @@ public class Hamster : MonoBehaviour
     Rigidbody2D rb;
 
     Cannon cannon;
+
+    bool canShoot;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,18 +28,35 @@ public class Hamster : MonoBehaviour
         Vector2 newVector = new Vector2(newX, newY).normalized;
         float bounceStrenght = Random.Range(minBounceStrenght, maxBounceStrenght);
         rb.AddForce(newVector * bounceStrenght);
+    }
 
-        GameController.Instance.AddSeedConsumition(hungry);
+    private void Start()
+    {
+        canShoot = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         float bounceStrenght = Random.Range(minBounceStrenght, maxBounceStrenght);
         rb.AddForce(collision.contacts[0].normal * bounceStrenght);
 
-        Cannon.Instance.Shoot();
+        if (collision.gameObject.layer != 6)
+        {
+            if (canShoot)
+            {
+                Cannon.Instance.Shoot();
+                canShoot = false;
+                StartCoroutine(DelayTimeForShoot());
+            }
+        }
     }
 
+    IEnumerator DelayTimeForShoot()
+    {
+        yield return new WaitForSeconds(0.3f);
+        canShoot = true;
+    }
     public void KillHamster()
     {
         GameController.Instance.RemoveSeedConsumition(hungry);

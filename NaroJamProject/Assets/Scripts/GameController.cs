@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class GameController : MonoBehaviour
     [SerializeField] int hamstersHungry;
     [SerializeField] float timeForSeedConsume = 5;
     [SerializeField] int initialSeeds = 25;
+
+    public int numHamsters { get; private set; }
+
+    public void AddHamster()
+    {
+        numHamsters++;
+    }
     void Awake()
     {
         if (Instance == null)
@@ -22,22 +30,13 @@ public class GameController : MonoBehaviour
 
         seedBank = initialSeeds;
         hamstersHungry = 0;
+
+        numHamsters = 1;
     }
 
     private void Start()
     {
         //StartCoroutine(ConsumeSeedRoutine());
-    }
-    IEnumerator ConsumeSeedRoutine()
-    {
-        while (true) 
-        {
-            yield return new WaitForSeconds(timeForSeedConsume);
-
-            seedBank -= hamstersHungry;
-
-            if (seedBank < 0) seedBank = 0;
-        }
     }
 
     public int GetHungry()
@@ -53,10 +52,6 @@ public class GameController : MonoBehaviour
         return seedBank;
     }
 
-    public void AddSeedConsumition(int seedNum)
-    {
-        hamstersHungry += seedNum;
-    }
     public void RemoveSeedConsumition(int seedNum)
     {
         hamstersHungry -= seedNum;
@@ -89,5 +84,16 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         if(timeRunning) timeFromStart += Time.deltaTime;
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            ResetScene();
+        }
+    }
+
+    void ResetScene()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 }

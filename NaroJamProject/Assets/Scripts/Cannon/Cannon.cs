@@ -7,8 +7,14 @@ public class Cannon : MonoBehaviour
     [SerializeField] GameObject seed;
     [SerializeField] GameObject shootPoint;
 
+    [SerializeField] int hitPoints = 3;
     public static Cannon Instance;
 
+    [SerializeField] Color enabledColor, disabledColor;
+    [SerializeField] SpriteRenderer OnOffButtonSprite;
+
+    bool isTakingDamage = false;
+    private bool cannonEnabled = true;
     private void Awake()
     {
         if (Instance == null)
@@ -17,9 +23,63 @@ public class Cannon : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
+
+        cannonEnabled = true;
+        OnOffButtonSprite.color = enabledColor;
     }
     public void Shoot()
     {
+        if (cannonEnabled == false) return;
         if(GameController.Instance.RemoveSeed(1)) Instantiate(seed, shootPoint.transform.position, Quaternion.identity, transform);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "CatCollider")
+        {
+            TakeDamage();
+
+        }
+    }
+
+    private void TakeDamage()
+    {
+        if (isTakingDamage) return;
+
+        isTakingDamage = true;
+
+        StartCoroutine(TakeDamageRoutine());
+    }
+
+    IEnumerator TakeDamageRoutine()
+    {
+        yield return null;
+        // IMPLEMENTAR ANIMACION
+
+        hitPoints -= 1;
+
+        if(hitPoints == 0)
+        {
+            Die();
+        }
+        else isTakingDamage = false;
+    }
+
+    public void ChangeEnableEstate()
+    {
+        cannonEnabled = !cannonEnabled;
+
+        if(cannonEnabled)
+        {
+            OnOffButtonSprite.color = enabledColor;
+        }
+        else
+        {
+            OnOffButtonSprite.color = disabledColor;
+        }
+    }
+    private void Die()
+    {
+        //Die
     }
 }
