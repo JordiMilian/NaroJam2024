@@ -1543,6 +1543,7 @@ Transform:
   - {fileID: 90009277}
   - {fileID: 1434691002}
   - {fileID: 1405960907}
+  - {fileID: 2057016542}
   m_Father: {fileID: 1501225278}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1561,6 +1562,14 @@ MonoBehaviour:
   hamstersPrefabs:
   - {fileID: 2661006018099358455, guid: a8e472c40de74374cadc483df63b7266, type: 3}
   - {fileID: 2661006018099358455, guid: d8623dbed9dc4ec46b0a7fd01f1e65cf, type: 3}
+  - {fileID: 2956693130673690921, guid: 1da931b77b397bd46ad8fa0c5699baad, type: 3}
+  - {fileID: 2956693130673690921, guid: 98accaa43ab34224a85c6a888a235b97, type: 3}
+  - {fileID: 2956693130673690921, guid: 7c5cc86645f799d4a80ee0e68e95cb0a, type: 3}
+  - {fileID: 2956693130673690921, guid: 47cfd6eded4809149b50d5f1fb1d4ca2, type: 3}
+  - {fileID: 1906475610266006251, guid: d521a2fa6e056654fbcb79d03ad7d712, type: 3}
+  - {fileID: 1906475610266006251, guid: cd5573d7643b4f64896b4d0d2676e11c, type: 3}
+  - {fileID: 1906475610266006251, guid: 80700ca07ed413e4895b0d9c23ca5b8c, type: 3}
+  - {fileID: 1906475610266006251, guid: 03abfde149152d44e83ccf5ef8475e84, type: 3}
   hamsterCost: 10
   hamsterCostUpdaterFactor: 1.5
   hamsterList: []
@@ -3704,7 +3713,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374461421}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.8, y: -4.3999996, z: 0}
+  m_LocalPosition: {x: 9.8, y: -3.99, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4051,7 +4060,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1747854102}
-  - {fileID: 2057016542}
   m_Father: {fileID: 602293189}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5686,12 +5694,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057016541}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.18, y: -1.69, z: 0}
+  m_LocalPosition: {x: 0.18000002, y: -1.6900002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1434691002}
-  m_RootOrder: 1
+  m_Father: {fileID: 602293189}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2057016543
 SpriteRenderer:

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class CatGenerator : MonoBehaviour
     [SerializeField] float catFirstGenerationTime = 10f;
     [SerializeField] List<GameObject> catList = new List<GameObject>();
     [SerializeField] GameObject spawnPoint;
+    public Action OnFirstCatSpawned;
 
     private void Start()
     {
@@ -21,6 +23,7 @@ public class CatGenerator : MonoBehaviour
     }
     IEnumerator CatGeneratorCoroutine()
     {
+        OnFirstCatSpawned?.Invoke();
         while(true)
         {
             yield return new WaitForSeconds(catGenerationTime);
@@ -34,7 +37,7 @@ public class CatGenerator : MonoBehaviour
 
     void GenerateCat()
     {
-        int randomCat = Random.Range(0, catList.Count);
+        int randomCat = UnityEngine.Random.Range(0, catList.Count);
         GameObject cat = catList[randomCat];
         GameObject newCat = Instantiate(cat, spawnPoint.transform.position, Quaternion.identity, transform);
     }
