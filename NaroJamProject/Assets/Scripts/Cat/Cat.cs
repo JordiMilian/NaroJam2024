@@ -6,6 +6,7 @@ public class Cat : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
     [SerializeField] private int hitPoints = 1;
+    [SerializeField] AudioClip damagedCatSFX, deathCatSFX, startCatAttackSFX;
     Animator catAnimtor;
     public bool inmortal = true;
     bool readyToAttack;
@@ -26,6 +27,11 @@ public class Cat : MonoBehaviour
         if(hitPoints <= 0 )
         {
             Die();
+            SFX_PlayerSingleton.Instance.playSFX(deathCatSFX);
+        }
+        else
+        {
+            SFX_PlayerSingleton.Instance.playSFX(damagedCatSFX,0.1f);
         }
     }
 
@@ -45,7 +51,6 @@ public class Cat : MonoBehaviour
         if(collision.tag == "CatCollider")
         {
             InRangeToAttackEntered();
-            Debug.Log("Cat near");
         }
     }
     private void Update()
@@ -56,9 +61,11 @@ public class Cat : MonoBehaviour
     {
         readyToAttack = true;
         catAnimtor.SetBool("inRangeToAttack",true);
+        SFX_PlayerSingleton.Instance.playSFX(startCatAttackSFX,0.1f);
     }
     void Die()
     {
+        SFX_PlayerSingleton.Instance.playSFX(deathCatSFX);
         Destroy(gameObject);
     }
 

@@ -12,7 +12,8 @@ public class Cannon : MonoBehaviour
 
     [SerializeField] Color enabledColor, disabledColor;
     [SerializeField] SpriteRenderer OnOffButtonSprite;
-    Animator cannonAnimator; 
+    Animator cannonAnimator;
+    [SerializeField] AudioClip hitCanonSFX, deathCanonSFX, shootSFX;
 
     private bool cannonEnabled = true;
     private void Awake()
@@ -30,7 +31,12 @@ public class Cannon : MonoBehaviour
     public void Shoot()
     {
         if (cannonEnabled == false) return;
-        if(GameController.Instance.RemoveSeed(1)) Instantiate(seed, shootPoint.transform.position, Quaternion.identity, transform); cannonAnimator.SetTrigger("shoot");
+        if (GameController.Instance.RemoveSeed(1)) 
+        { 
+            Instantiate(seed, shootPoint.transform.position, Quaternion.identity, transform);
+            cannonAnimator.SetTrigger("shoot");
+            SFX_PlayerSingleton.Instance.playSFX(shootSFX, 0.2f);
+        }
     }
 
     public void TakeDamage() //called from Cat
@@ -41,14 +47,17 @@ public class Cannon : MonoBehaviour
         {
             cannonAnimator.SetTrigger("death");
             GameController.Instance.showResetTutorial();
+            SFX_PlayerSingleton.Instance.playSFX(deathCanonSFX);
         }
         else if(hitPoints > 0)
         {
             cannonAnimator.SetTrigger("hit");
+            SFX_PlayerSingleton.Instance.playSFX(hitCanonSFX, 0.1f);
         }
         else if(hitPoints <= 0)
         {
             cannonAnimator.SetTrigger("redeath");
+            SFX_PlayerSingleton.Instance.playSFX(hitCanonSFX, 0.1f);
         }
     }
     public void ChangeEnableEstate()
