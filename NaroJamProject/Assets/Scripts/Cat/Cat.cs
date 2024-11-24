@@ -8,6 +8,7 @@ public class Cat : MonoBehaviour
     [SerializeField] private int hitPoints = 1;
     Animator catAnimtor;
     public bool inmortal = true;
+    bool readyToAttack;
 
     private bool changingSpeed = false;
 
@@ -43,17 +44,18 @@ public class Cat : MonoBehaviour
     {
         if(collision.tag == "CatCollider")
         {
-            GetHamster();
+            InRangeToAttackEntered();
+            Debug.Log("Cat near");
         }
     }
     private void Update()
     {
         MoveCat();
     }
-    void GetHamster()
+    void InRangeToAttackEntered()
     {
-        Destroy(gameObject);
-        //To be implemented -- Coge un hamster y se pira
+        readyToAttack = true;
+        catAnimtor.SetBool("inRangeToAttack",true);
     }
     void Die()
     {
@@ -62,6 +64,11 @@ public class Cat : MonoBehaviour
 
     void MoveCat()
     {
+        if (readyToAttack) return;
         transform.position = new Vector3(transform.position.x - (speed * Time.deltaTime), transform.position.y, transform.position.z);
+    }
+    public void EV_CatAttackedFrame()
+    {
+        Cannon.Instance.TakeDamage();
     }
 }

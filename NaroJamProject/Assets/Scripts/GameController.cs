@@ -14,6 +14,7 @@ public class GameController : MonoBehaviour
     [SerializeField] float timeForSeedConsume = 5;
     [SerializeField] int initialSeeds = 25;
 
+    [SerializeField] Transform resetTutorialRoot;
     public int numHamsters { get; private set; }
 
     public void AddHamster()
@@ -32,6 +33,7 @@ public class GameController : MonoBehaviour
         hamstersHungry = 0;
 
         numHamsters = 1;
+        if(resetTutorialRoot != null) { resetTutorialRoot.gameObject.SetActive(false); }
     }
 
     private void Start()
@@ -95,5 +97,12 @@ public class GameController : MonoBehaviour
     {
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName);
+    }
+    public void showResetTutorial()
+    {
+        if(resetTutorialRoot != null)
+        {
+            resetTutorialRoot.gameObject.SetActive(true);
+        }
     }
 }
