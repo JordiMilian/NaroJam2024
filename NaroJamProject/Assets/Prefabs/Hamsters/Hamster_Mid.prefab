@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 2661006018099358454}
   - component: {fileID: 2661006018099358452}
   - component: {fileID: 2661006018099358453}
+  - component: {fileID: -5468361702023631048}
   m_Layer: 6
   m_Name: Hamster_Mid
   m_TagString: Untagged
@@ -175,3 +176,14 @@ MonoBehaviour:
   hungry: 2
   explosionHitVFX: {fileID: 2162089852551605248, guid: 7fda7f3b262798641a581a6023c05834, type: 3}
   bounceToWallSFX: {fileID: 8300000, guid: 0185120eb4329824abd5bc7a2e311c82, type: 3}
+--- !u!210 &-5468361702023631048
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661006018099358455}
+  m_Enabled: 1
+  m_SortingLayerID: -195699025
+  m_SortingLayer: 3
+  m_SortingOrder: 1

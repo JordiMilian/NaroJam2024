@@ -58,7 +58,7 @@ public class PlantSlot : MonoBehaviour
         {
             if (SeedFarm.Instance.plantsCount == SeedFarm.Instance.maxPlants) return;
 
-            if (GameController.Instance.RemoveSeed(num * SeedFarm.Instance.plantCost))
+            if (GameController.Instance.RemoveSeed(SeedFarm.Instance.plantCost))
             {
                 SeedFarm.Instance.UpdateBuyPlantCost();
                 CreatePlant();
@@ -69,14 +69,14 @@ public class PlantSlot : MonoBehaviour
         }
         else if(plantState == 1)
         {
-            if (GameController.Instance.RemoveSeed(num * SeedFarm.Instance.plantUpgrade1Cost))
+            if (GameController.Instance.RemoveSeed(SeedFarm.Instance.plantUpgrade1Cost))
             {
                 UpgradePlant1();
             }
         }
         else if(plantState == 2)
         {
-            if (GameController.Instance.RemoveSeed(num * SeedFarm.Instance.plantUpgrade1Cost))
+            if (GameController.Instance.RemoveSeed(SeedFarm.Instance.plantUpgrade1Cost))
             {
                 UpgradePlant2();
             }
@@ -94,6 +94,10 @@ public class PlantSlot : MonoBehaviour
         SeedFarm.Instance.plantsCount++;
     }
 
+    private void Update()
+    {
+        CheckPrice();
+    }
     public void CheckPrice()
     {
         if(plantState == 0) priceText.text = SeedFarm.Instance.plantCost.ToString();

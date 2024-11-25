@@ -6,7 +6,7 @@ using TMPro;
 public class HamsterWheel : MonoBehaviour
 {
     [SerializeField] List<GameObject> hamstersPrefabs;
-
+    [SerializeField] AudioClip hamsterBuySound;
     [SerializeField] int hamsterCost = 10;
     [SerializeField] float hamsterCostUpdaterFactor = 1.5f;
 
@@ -26,6 +26,7 @@ public class HamsterWheel : MonoBehaviour
             UpdateHamsterCost();
 
             GameController.Instance.AddHamster();
+            SFX_PlayerSingleton.Instance.playSFX(hamsterBuySound, 0.2f);
         }
         else Debug.Log("Not enough seeds for the hamster");
     }

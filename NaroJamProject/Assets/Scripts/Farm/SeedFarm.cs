@@ -28,33 +28,19 @@ public class SeedFarm : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else Destroy(gameObject);
-
-        StartCoroutine(UpdatePrices());
     }
     public void UpdateBuyPlantCost()
     {
         plantCost = (int)(plantCost * plantCostUpdaterFactor);
-        StartCoroutine(UpdatePrices());
     }
 
     public void UpdateUpgrade1PlantCost()
     {
         plantUpgrade1Cost = (int)(plantUpgrade1Cost * plantCostUpdaterFactor);
-        StartCoroutine(UpdatePrices());
     }
 
     public void UpdateUpgrade2PlantCost()
     {
         plantUpgrade2Cost = (int)(plantUpgrade2Cost * plantCostUpdaterFactor);
-        StartCoroutine(UpdatePrices());
-    }
-
-    IEnumerator UpdatePrices()
-    {
-        yield return new WaitForEndOfFrame();
-        for (int i = 0; i < plantSlots.Count; i++)
-        {
-            plantSlots[i].CheckPrice();
-        }
     }
 }

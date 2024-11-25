@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6502853408660878482}
   - component: {fileID: 3311343687685916824}
   - component: {fileID: 425379191279234004}
+  - component: {fileID: 8645740195498982381}
   m_Layer: 0
   m_Name: VFX_Rebote
   m_TagString: Untagged
@@ -4888,3 +4889,14 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!210 &8645740195498982381
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2162089852551605248}
+  m_Enabled: 1
+  m_SortingLayerID: -195699025
+  m_SortingLayer: 3
+  m_SortingOrder: 0

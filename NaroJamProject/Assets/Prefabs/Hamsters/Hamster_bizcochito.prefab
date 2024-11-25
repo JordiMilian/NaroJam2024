@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2661006016592318191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.84974, y: 0.84974, z: 0.84974}
+  m_LocalScale: {x: 0.43431, y: 0.43431, z: 0.43431}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2661006018099358454}
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 35be146f8a1dee944be4d0804dd6be71, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78e7616b858a659418a124dd4c3930da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.29
+  m_Radius: 0.61
 --- !u!1 &2661006018099358455
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,8 +112,9 @@ GameObject:
   - component: {fileID: 2661006018099358454}
   - component: {fileID: 2661006018099358452}
   - component: {fileID: 2661006018099358453}
+  - component: {fileID: 1405960910}
   m_Layer: 6
-  m_Name: Hamster_Big
+  m_Name: Hamster_bizcochito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +129,7 @@ Transform:
   m_GameObject: {fileID: 2661006018099358455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.57250744, y: 0.57250744, z: 0.57250744}
+  m_LocalScale: {x: 1.2219895, y: 1.2219895, z: 1.2219895}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2661006016592318190}
@@ -150,7 +151,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0.7
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -168,10 +169,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aef17157f9064d4399d3db90ff6934e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minBounceStrenght: 100
+  minBounceStrenght: 70
   maxBounceStrenght: 200
   minAngle: 30
   maxAngle: 60
-  hungry: 3
+  hungry: 1
   explosionHitVFX: {fileID: 2162089852551605248, guid: 7fda7f3b262798641a581a6023c05834, type: 3}
   bounceToWallSFX: {fileID: 8300000, guid: 0185120eb4329824abd5bc7a2e311c82, type: 3}
+--- !u!210 &1405960910
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2661006018099358455}
+  m_Enabled: 1
+  m_SortingLayerID: -195699025
+  m_SortingLayer: 3
+  m_SortingOrder: 1

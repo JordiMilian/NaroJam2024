@@ -17,7 +17,7 @@ TagManager:
   - Hamster
   - Cat
   - Destroyer
-  - 
+  - Background
   - 
   - 
   - 
@@ -41,12 +41,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Fondos
-    uniqueID: 3756979375
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fondos
+    uniqueID: 3756979375
+    locked: 0
+  - name: GameElements
+    uniqueID: 3851323519
+    locked: 0
+  - name: Hamster
+    uniqueID: 4099268271
+    locked: 0
+  - name: Cat
+    uniqueID: 405522395
+    locked: 0
   - name: FondoDelante
     uniqueID: 504282397
+    locked: 0
+  - name: UI
+    uniqueID: 690534665
     locked: 0

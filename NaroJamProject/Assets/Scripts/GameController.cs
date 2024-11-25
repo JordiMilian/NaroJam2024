@@ -87,21 +87,10 @@ public class GameController : MonoBehaviour
     {
         if(timeRunning) timeFromStart += Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            ResetScene();
-        }
-
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
         }
-    }
-
-    void ResetScene()
-    {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(currentSceneName);
     }
     public void showResetTutorial()
     {
